@@ -8,7 +8,7 @@ namespace CS321_W2D2_StudentAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class StudentsController : ControllerBase
     {
         // GET api/values
         [HttpGet]
