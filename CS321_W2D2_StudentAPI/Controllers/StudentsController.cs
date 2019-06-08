@@ -6,28 +6,27 @@ namespace CS321_W2D2_StudentAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ToDosController : ControllerBase
+    public class StudentsController : ControllerBase
     {
         private readonly IStudentsService _studentsService;
 
         // Constructor
-        // how does the todoService get passed in?
-        public ToDosController(IStudentsService studentsService)
+        public StudentsController(IStudentsService studentsService)
         {
             _studentsService = studentsService; // keep a reference to the service so we can use below
         }
 
-        // get all todos
-        // GET api/todos
+        // get all students
+        // GET api/students
         [HttpGet]
         public IActionResult Get()
         {
-            // return OK 200 status and list of todos
+            // return OK 200 status and list of students
             return Ok(_studentsService.GetAll());
         }
 
         // get specific student by id
-        // GET api/todos/:id
+        // GET api/students/:id
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -40,7 +39,7 @@ namespace CS321_W2D2_StudentAPI.Controllers
         }
 
         // create a new student
-        // POST api/todos
+        // POST api/students
         [HttpPost]
         public IActionResult Post([FromBody] Student newStudent)
         {
@@ -56,12 +55,12 @@ namespace CS321_W2D2_StudentAPI.Controllers
             }
 
             // return a 201 Created status. This will also add a "location" header
-            // with the URI of the new student. E.g., /api/todos/99, if the new is 99
+            // with the URI of the new student. E.g., /api/students/99, if the new is 99
             return CreatedAtAction("Get", new { Id = newStudent.Id }, newStudent);
         }
 
         // update an existing student
-        // PUT api/todos/:id
+        // PUT api/students/:id
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Student updatedStudent)
         {
@@ -71,7 +70,7 @@ namespace CS321_W2D2_StudentAPI.Controllers
         }
 
         // delete an existing student
-        // DELETE api/todos/:id
+        // DELETE api/students/:id
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
