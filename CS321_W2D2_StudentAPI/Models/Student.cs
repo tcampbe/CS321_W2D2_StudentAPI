@@ -12,8 +12,10 @@ namespace CS321_W2D2_StudentAPI.Models
         public string LastName { get; set; }
         [Required]
         public DateTime BirthDate { get; set; }
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
+        [Required]
         [Phone]
         public string Phone { get; set; }
     }
