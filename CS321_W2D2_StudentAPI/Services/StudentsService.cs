@@ -24,12 +24,25 @@ namespace CS321_W2D2_StudentAPI.Services
 
         public Student Add(Student student)
         {
+            ValidateBirthDate(student);
             // assign an id (and then increment _nextId for next time)
             student.Id = _nextId++;
             // store in the list of Posts
             _students.Add(student);
             // return the new Student with Id filled in
             return student;
+        }
+
+        public void ValidateBirthDate(Student student)
+        {
+            if (student.BirthDate > DateTime.Now)
+            {
+                throw new ApplicationException("BirthDate cannot be in the future.");
+            }
+            if (DateTime.Today.Year - student.BirthDate.Year > 18)
+            {
+                throw new ApplicationException("You're too old to be a student!");
+            }
         }
 
         public Student Get(int id)
