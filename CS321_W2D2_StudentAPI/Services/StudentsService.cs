@@ -37,7 +37,7 @@ namespace CS321_W2D2_StudentAPI.Services
             ValidateBirthDate(student);
             // assign an id (and then increment _nextId for next time)
             student.Id = _nextId++;
-            // store in the list of Posts
+            // store in the list of students
             _students.Add(student);
             // return the new Student with Id filled in
             return student;
@@ -58,35 +58,27 @@ namespace CS321_W2D2_StudentAPI.Services
         public Student Get(int id)
         {
             // return the specified Student or null if not found
-            return _students.FirstOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Student> GetAll()
         {
-            return _students;
+            // return all students
         }
 
         public Student Update(Student updatedStudent)
         {
             // get the Student object in the current list with this id 
-            var currentStudent = this.Get(updatedStudent.Id);
 
             // return null if item to update isn't found
-            if (currentStudent == null) return null;
 
             // copy the property values from the updated student into the current student object
-            currentStudent.FirstName = updatedStudent.FirstName;
-            currentStudent.LastName = updatedStudent.LastName;
-            currentStudent.BirthDate = updatedStudent.BirthDate;
-            currentStudent.Email = updatedStudent.Email;
-            currentStudent.Phone = updatedStudent.Phone;
 
-            return currentStudent;
+            // return student
         }
 
         public void Remove(Student student)
         {
-            _students.Remove(student);
+            // remove student
         }
     }
 }

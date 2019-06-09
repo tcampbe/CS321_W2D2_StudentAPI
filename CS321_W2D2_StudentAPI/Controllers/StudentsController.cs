@@ -11,9 +11,9 @@ namespace CS321_W2D2_StudentAPI.Controllers
         private readonly IStudentsService _studentsService;
 
         // Constructor
-        public StudentsController(IStudentsService studentsService)
+        public StudentsController(/* HINT: what parameter is necessary to inject the service? */)
         {
-            _studentsService = studentsService; // keep a reference to the service so we can use below
+            // HINT: keep a reference to the incoming service
         }
 
         // get all students
@@ -43,16 +43,8 @@ namespace CS321_W2D2_StudentAPI.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Student newStudent)
         {
-            try
-            {
-                // add the new student
-                _studentsService.Add(newStudent);
-            }
-            catch (System.Exception ex)
-            {
-                ModelState.AddModelError("AddStudent", ex.Message);
-                return BadRequest(ModelState);
-            }
+            // add the new student
+            _studentsService.Add(newStudent);
 
             // return a 201 Created status. This will also add a "location" header
             // with the URI of the new student. E.g., /api/students/99, if the new is 99

@@ -27,7 +27,7 @@ namespace CS321_W2D2_StudentAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSingleton<IStudentsService, StudentsService>();
+            // configure IStudentService for injection
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
