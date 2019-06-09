@@ -13,10 +13,20 @@ namespace CS321_W2D2_StudentAPI.Services
             new Student
             {
                 Id = 1,
+                FirstName = "John",
+                LastName = "Doe",
+                BirthDate = new DateTime(2010, 1, 1),
+                Email = "john.doe@test.com",
+                Phone = "555.555.5555"
             },
             new Student
             {
                 Id = 2,
+                FirstName = "Jane",
+                LastName = "Smith",
+                BirthDate = new DateTime(2012, 1, 1),
+                Email = "jane.smith@test.com",
+                Phone = "555.555.5555"
             }
         };
         // keep track of next id number
