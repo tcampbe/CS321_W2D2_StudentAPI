@@ -156,5 +156,15 @@ namespace CS321_W2D2_StudentAPI.Tests
             // act - call Post() with given student 
             return controller.Post(student);
         }
+
+        [Fact]
+        public void Get_ShouldReturnOKWhenStudentsExist()
+        {
+            var controller = new StudentsController(new StudentsService());
+            var result = controller.Get();
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+
     }
 }
