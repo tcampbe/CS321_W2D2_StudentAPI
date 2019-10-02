@@ -11,7 +11,7 @@ namespace CS321_W2D2_StudentAPI.Controllers
         private readonly IStudentsService _studentsService;
 
         // Constructor
-        public StudentsController(IStudentsService studentsService/* HINT: what parameter is necessary to inject the service? */)
+        public StudentsController(IStudentsService studentsService/* done: what parameter is necessary to inject the service? */)
         {
             // reference to the incoming service
             _studentsService = studentsService;
@@ -51,7 +51,7 @@ namespace CS321_W2D2_StudentAPI.Controllers
             }
             catch (System.Exception ex)
             {
-                ModelState.AddModelError("AddToDo", ex.Message);
+                ModelState.AddModelError("AddStudent", ex.Message);
                 return BadRequest(ModelState);
             }
 
